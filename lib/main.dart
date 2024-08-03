@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     if ((Provider.of<InterfaceChangeProvider>(context)
         .interfaceChangeModel
-        .isAndroid)) {
+        .isCupertino)) {
       return CupertinoApp(
         theme: (Provider.of<ThemeProvider>(context).themeModel.isDark)
             ? ThemeToggle().darkThemeCupertino

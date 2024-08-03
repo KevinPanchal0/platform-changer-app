@@ -1,5 +1,5 @@
 class InterfaceChangeModel{
-  late bool isAndroid;
+  late bool isCupertino;
 
-  InterfaceChangeModel({required this.isAndroid});
+  InterfaceChangeModel({required this.isCupertino});
 }

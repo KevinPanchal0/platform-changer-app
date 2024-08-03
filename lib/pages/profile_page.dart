@@ -21,12 +21,8 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController genderController = TextEditingController();
 
   DateTime? pickedTimeCupertino;
+  DateTime? pickedTimeAndroid;
   String dateString = "";
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +33,11 @@ class _ProfilePageState extends State<ProfilePage> {
     phoneController.text = profile.phone;
     emailController.text = profile.email;
     genderController.text = profile.gender;
-    return (Provider.of<InterfaceChangeProvider>(context)
+    return (Provider.of<InterfaceChangeProvider>(context, listen: true)
             .interfaceChangeModel
-            .isAndroid)
+            .isCupertino)
         ? CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(),
+            navigationBar: const CupertinoNavigationBar(),
             child: SafeArea(
               child: Column(
                 children: [
@@ -50,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: CupertinoTextField(
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.name,
-                      padding: EdgeInsets.all(18),
+                      padding: const EdgeInsets.all(18),
                       placeholder: 'Name',
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -68,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: CupertinoTextField(
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.number,
-                      padding: EdgeInsets.all(18),
+                      padding: const EdgeInsets.all(18),
                       placeholder: 'Phone',
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -86,7 +82,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: CupertinoTextField(
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.emailAddress,
-                      padding: EdgeInsets.all(18),
+                      padding: const EdgeInsets.all(18),
                       placeholder: 'Email',
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -103,16 +99,16 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       (pickedTimeCupertino == null)
-                          ? Text('Pick Date')
+                          ? const Text('Pick Date')
                           : Text(
                               profile.dob,
-                              style: TextStyle(fontSize: 25),
+                              style: const TextStyle(fontSize: 25),
                             ),
-                      SizedBox(
+                      const SizedBox(
                         width: 150,
                       ),
                       CupertinoButton(
-                          child: Icon(
+                          child: const Icon(
                             CupertinoIcons.calendar,
                             size: 36,
                           ),
@@ -143,28 +139,92 @@ class _ProfilePageState extends State<ProfilePage> {
                           })
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CupertinoTextField(
-                      textInputAction: TextInputAction.done,
-                      keyboardType: TextInputType.name,
-                      padding: EdgeInsets.all(18),
-                      placeholder: 'Gender',
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                        color: (Provider.of<ThemeProvider>(
-                          context,
-                        ).themeModel.isDark)
-                            ? CupertinoColors.inactiveGray
-                            : CupertinoColors.black,
-                      )),
-                      controller: genderController,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        'Gender: ${profile.gender}',
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(
+                        width: 140,
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            showCupertinoModalPopup(
+                                context: context,
+                                builder: (context) {
+                                  return CupertinoAlertDialog(
+                                    title: const Text('Pick Gender'),
+                                    actions: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            CupertinoRadio(
+
+                                              value: 'Male',
+                                              groupValue: profile.gender,
+                                              onChanged: (value) {
+                                                profileProvider
+                                                    .handleGenderChange(value);
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                            const Text('Male'),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            CupertinoRadio(
+                                              value: 'Female',
+                                              groupValue: profile.gender,
+                                              onChanged: (value) {
+                                                profileProvider
+                                                    .handleGenderChange(value);
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+
+                                            const Text('Female'),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            CupertinoRadio(
+                                              value: 'Other',
+                                              groupValue: profile.gender,
+                                              onChanged: (value) {
+                                                profileProvider
+                                                    .handleGenderChange(value);
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+
+                                            const Text('Other'),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                });
+                          },
+                          icon: const Icon(CupertinoIcons.person, size: 36,)),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: CupertinoButton(
-                        child: Text('Update Contact'),
+                        child: const Text('Update Profile'),
                         onPressed: () {
                           profileProvider.updateProfile(
                               nameController.text,
@@ -192,7 +252,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: TextField(
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(), hintText: 'Name'),
                     controller: nameController,
                   ),
@@ -202,7 +262,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: TextField(
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(), hintText: 'Phone'),
                     controller: phoneController,
                   ),
@@ -212,30 +272,94 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: TextField(
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(), hintText: 'Email'),
                     controller: emailController,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: TextField(
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.datetime,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'dob'),
-                    controller: dobController,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    (pickedTimeAndroid == null)
+                        ? const Text(
+                            'Pick Date',
+                            style: TextStyle(fontSize: 18),
+                          )
+                        : Text(
+                            profile.dob,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                    const SizedBox(
+                      width: 150,
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        pickedTimeAndroid = await showDatePicker(
+                            context: context,
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime.now());
+
+                        if (pickedTimeAndroid != null) {
+                          dateString =
+                              '${pickedTimeAndroid!.day}/${pickedTimeAndroid!.month}/${pickedTimeAndroid!.year}';
+                          profileProvider.updateDate(dateString);
+                        }
+                      },
+                      icon: const Icon(Icons.calendar_month_outlined),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: TextField(
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Gender'),
-                    controller: genderController,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Gender: ${profile.gender}',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: const Text('Pick Gender'),
+                                  actions: [
+                                    RadioListTile(
+                                      title: const Text('Male'),
+                                      value: 'Male',
+                                      groupValue: profile.gender,
+                                      onChanged: (value) {
+                                        profileProvider
+                                            .handleGenderChange(value);
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    RadioListTile(
+                                      title: const Text('Female'),
+                                      value: 'Female',
+                                      groupValue: profile.gender,
+                                      onChanged: (value) {
+                                        profileProvider
+                                            .handleGenderChange(value);
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    RadioListTile(
+                                      title: const Text('Other'),
+                                      value: 'Other',
+                                      groupValue: profile.gender,
+                                      onChanged: (value) {
+                                        profileProvider
+                                            .handleGenderChange(value);
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              });
+                        },
+                        icon: const Icon(Icons.person)),
+                  ],
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -243,11 +367,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         nameController.text,
                         phoneController.text,
                         emailController.text,
-                        dobController.text,
+                        dateString,
                         genderController.text);
                     Navigator.pop(context);
                   },
-                  child: Text('Update Contact'),
+                  child: const Text('Update Contact'),
                 ),
               ],
             ),

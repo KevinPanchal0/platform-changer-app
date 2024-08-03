@@ -3,14 +3,14 @@ import 'package:platform_changer_app/model/interface_change_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InterfaceChangeProvider with ChangeNotifier {
-  InterfaceChangeModel interfaceChangeModel = InterfaceChangeModel(isAndroid: false);
+  InterfaceChangeModel interfaceChangeModel = InterfaceChangeModel(isCupertino: false);
 
 
   InterfaceChangeProvider(){
     loadPrefs();
   }
   void changeInterface() {
-    interfaceChangeModel.isAndroid = !interfaceChangeModel.isAndroid;
+    interfaceChangeModel.isCupertino = !interfaceChangeModel.isCupertino;
     setPrefs();
     notifyListeners();
   }
@@ -18,7 +18,7 @@ class InterfaceChangeProvider with ChangeNotifier {
   Future<void> loadPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    interfaceChangeModel.isAndroid = prefs.getBool("isAndroid") ?? false;
+    interfaceChangeModel.isCupertino = prefs.getBool("isAndroid") ?? false;
 
     notifyListeners();
   }
@@ -26,6 +26,6 @@ class InterfaceChangeProvider with ChangeNotifier {
   Future<void> setPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    await prefs.setBool("isAndroid", interfaceChangeModel.isAndroid);
+    await prefs.setBool("isAndroid", interfaceChangeModel.isCupertino);
   }
 }

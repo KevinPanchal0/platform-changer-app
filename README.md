@@ -49,5 +49,5 @@ paradigms.
 - Local storage: shared_preferences package
 
 ## Download
-- [Download the app](https://drive.google.com/file/d/1lR1aeXDtqZAlSWzopHxdxilT-PtFAg5t/view?usp=sharing)
+- [Download the app](https://drive.google.com/file/d/15-PwHN2mbiTonsQSXR2BpunA0CuI-rux/view?usp=sharing)
 - And Install

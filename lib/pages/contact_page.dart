@@ -17,108 +17,112 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final contact =
         Provider.of<ContactProvider>(context, listen: false).contactList;
-    if ((Provider.of<InterfaceChangeProvider>(context)
-        .interfaceChangeModel
-        .isAndroid)) {
-      return CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: Text('Contact'),
-          trailing: IconButton(
-              onPressed: () {
-                Navigator.push(
+    return (Provider.of<InterfaceChangeProvider>(context, listen: true)
+            .interfaceChangeModel
+            .isCupertino)
+        ? CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Contact'),
+        trailing: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                      builder: (context) => const AddContactPage()));
+            },
+            icon: const Icon(CupertinoIcons.add)),
+      ),
+      child: (Provider.of<ContactProvider>(context)
+          .contactList
+          .isNotEmpty)
+          ? SafeArea(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height / 1.3,
+          child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: Provider.of<ContactProvider>(context,
+                  listen: false)
+                  .contactList
+                  .length,
+              itemBuilder: (context, index) => CupertinoListTile(
+                leading: CircleAvatar(
+                  backgroundImage: FileImage(
+                    File(contact[index].image),
+                  ),
+                ),
+                title: Text(contact[index].name),
+                subtitle: Text(contact[index].phone),
+                trailing: IconButton(
+                    onPressed: () async {
+                      await launchUrl(Uri.parse(
+                          'tel:' '+91${contact[index].phone}'));
+                    },
+                    icon: const Icon(Icons.call)),
+                onTap: () {
+                  Navigator.push(
                     context,
                     CupertinoPageRoute(
-                        builder: (context) => const AddContactPage()));
-              },
-              icon: Icon(CupertinoIcons.add)),
+                      builder: (context) =>
+                          DetailPage(contact: contact[index]),
+                    ),
+                  );
+                },
+              )),
         ),
-        child: (Provider.of<ContactProvider>(context).contactList.isNotEmpty)
-            ? SafeArea(
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 1.3,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount:
-                          Provider.of<ContactProvider>(context, listen: false)
-                              .contactList
-                              .length,
-                      itemBuilder: (context, index) => CupertinoListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: FileImage(
-                                File(contact[index].image),
-                              ),
-                            ),
-                            title: Text(contact[index].name),
-                            subtitle: Text(contact[index].phone),
-                            trailing: IconButton(
-                                onPressed: () async {
-                                  await launchUrl(Uri.parse(
-                                      'tel:' '+91${contact[index].phone}'));
-                                },
-                                icon: Icon(Icons.call)),
-                            onTap: () {
-                              Navigator.push(
-                                context,CupertinoPageRoute(
-                                builder: (context) => DetailPage(contact: contact[index]),
-                              ),
-                              );
-                            },
-                          )),
-                ),
-              )
-            : SafeArea(
-                child: const Center(
-                    child: Text(
+      )
+          : const SafeArea(
+          child: Center(
+              child: Text(
                 'Add Contact',
               ))),
-      );
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Contact'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/addPage');
-          },
-          child: const Icon(Icons.add),
-        ),
-        body: (Provider.of<ContactProvider>(context).contactList.isNotEmpty)
-            ? ListView.builder(
-                itemCount: Provider.of<ContactProvider>(context, listen: false)
-                    .contactList
-                    .length,
-                itemBuilder: (context, index) {
-                  final contact =
-                      Provider.of<ContactProvider>(context, listen: false)
-                          .contactList;
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: FileImage(
-                        File(contact[index].image),
-                      ),
-                    ),
-                    title: Text(contact[index].name),
-                    subtitle: Text(contact[index].phone),
-                    trailing: IconButton(
-                        onPressed: () async {
-                          await launchUrl(
-                              Uri.parse('tel:' '+91${contact[index].phone}'));
-                        },
-                        icon: Icon(Icons.call)),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (context) => DetailPage(contact: contact[index]),
-                        ),
-                      );
-                    },
-                  );
-                })
-            : const Center(child: Text('Add Contact')),
-      );
-    }
+    )
+        : Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Contact'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/addPage');
+        },
+        child: const Icon(Icons.add),
+      ),
+      body: (Provider.of<ContactProvider>(context).contactList.isNotEmpty)
+          ? ListView.builder(
+          itemCount:
+          Provider.of<ContactProvider>(context, listen: false)
+              .contactList
+              .length,
+          itemBuilder: (context, index) {
+            final contact =
+                Provider.of<ContactProvider>(context, listen: false)
+                    .contactList;
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: FileImage(
+                  File(contact[index].image),
+                ),
+              ),
+              title: Text(contact[index].name),
+              subtitle: Text(contact[index].phone),
+              trailing: IconButton(
+                  onPressed: () async {
+                    await launchUrl(Uri.parse(
+                        'tel:' '+91${contact[index].phone}'));
+                  },
+                  icon: const Icon(Icons.call)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) =>
+                        DetailPage(contact: contact[index]),
+                  ),
+                );
+              },
+            );
+          })
+          : const Center(child: Text('Add Contact')),
+    );
   }
 }

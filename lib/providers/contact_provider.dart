@@ -11,7 +11,7 @@ class ContactProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> removeContact({required ContactModel data}) async {
+  void removeContact({required ContactModel data}) {
     _contactList.remove(data);
     notifyListeners();
   }

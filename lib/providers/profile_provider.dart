@@ -15,6 +15,11 @@ class ProfileProvider with ChangeNotifier {
     _profileModel.dob = date;
     notifyListeners();
   }
+
+  void handleGenderChange(String? value) {
+    _profileModel.gender = value!;
+    notifyListeners();
+  }
   void updateProfile(String name, String email, String phone,
       String dob, String gender) {
     _profileModel = ProfileModel(
