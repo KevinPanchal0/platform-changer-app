@@ -14,26 +14,28 @@ paradigms.
 - [Download](#download)
 
 ## Screenshots(Android)
-<img src="https://github.com/user-attachments/assets/4a596682-4083-4e3f-83a1-10a327c738c4" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/dc2a1d94-9492-4837-a517-f34a94f97f72" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/dbd53547-e5fd-498c-bf18-63c28837524e" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/2dd11388-7c1e-424d-a47a-7fc17f292f34" alt="App Screenshot" width="200" height="400"/> <br> <br>
-<img src="https://github.com/user-attachments/assets/44153645-d89c-4e0f-8385-ee1ef71b105b" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/d6b35bff-f7bf-4279-b025-b55d5158445d" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/84d2d804-0d7c-472f-a440-1ad7f0f073b1" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/9c42d969-2952-45cb-809a-c88a954e098f" alt="App Screenshot" width="200" height="400"/>  <br> <br>
-<img src="https://github.com/user-attachments/assets/970bac8d-4028-4056-aa9b-b1243bcbc7ef" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/44636229-d6e3-42e7-9868-4a16edbe2660" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/5a554952-ec70-4599-8325-f82c130f4c27" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/abc8c77a-4292-4c88-b684-af58e6da0118" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/3661d257-0fb2-46dc-93a7-c37df1b1b201" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/84e8caea-ee4b-42d0-8dda-59a175952463" alt="App Screenshot" width="200" height="400"/> <br> <br>
+<img src="https://github.com/user-attachments/assets/bfbc4d79-fbb2-48c0-adb9-e57f92fba904" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/c38b6404-a22a-4e86-b8cf-46df835a9001" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/f156942e-d7b6-473b-9f42-48e4b72324c8" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/35508c51-31f4-47e6-ab25-8e7ebeff1963" alt="App Screenshot" width="200" height="400"/>  <br> <br>
+<img src="https://github.com/user-attachments/assets/01400c1f-93f7-4cad-ab97-9aa234d41d62" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/083c8d43-45e0-4c9c-90f5-9a6eb1980374" alt="App Screenshot" width="200" height="400"/>
 
 ## Screenshots(IOS)
-<img src="https://github.com/user-attachments/assets/e22c33ca-49e2-4e54-889f-b74f5296ca88" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/37601299-53d5-4cee-a641-433d0b9ffacd" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/128fe6bf-afb8-4dfd-9cc0-a0793d12d862" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/519868dc-9a11-403d-adaf-4575469417b5" alt="App Screenshot" width="200" height="400"/> <br> <br>
-<img src="https://github.com/user-attachments/assets/a30d992d-d032-46ac-938c-02aa628c4de1" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/e7124d0e-6fab-4def-846a-f89328ca4fca" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/92b8101b-ccce-4816-afad-91f92c0e572a" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/49957aee-9fe2-4747-a1f4-cbe217ed537b" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/9e22df49-7501-4579-83c8-628979d245fd" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/4c484dae-929d-43af-96aa-1e071f73136c" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/1c51e11e-e5db-4132-af9d-70a1ffa466f4" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/c721ac71-1cdd-416f-8da3-dd9b44b652af" alt="App Screenshot" width="200" height="400"/> <br> <br>
+<img src="https://github.com/user-attachments/assets/9e77c602-c380-4eec-bcea-5c1d4b4eb266" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/3ef87193-2dcb-40cc-b0b9-43fdd3ceda60" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/feba97d6-b91f-4c57-bafa-9544fffe5b4a" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/a475e085-8a80-44f1-a5bd-4c8a29682379" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/dab6895a-56d0-4115-acab-5d48a5873359" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/803038bf-c877-493f-8f61-8f86b84f3ee4" alt="App Screenshot" width="200" height="400"/>
 
 ## Features
 - Profile management functionality
