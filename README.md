@@ -33,7 +33,7 @@ paradigms.
 <img src="https://github.com/user-attachments/assets/9e77c602-c380-4eec-bcea-5c1d4b4eb266" alt="App Screenshot" width="200" height="400"/>
 <img src="https://github.com/user-attachments/assets/3ef87193-2dcb-40cc-b0b9-43fdd3ceda60" alt="App Screenshot" width="200" height="400"/>
 <img src="https://github.com/user-attachments/assets/feba97d6-b91f-4c57-bafa-9544fffe5b4a" alt="App Screenshot" width="200" height="400"/>
-<img src="https://github.com/user-attachments/assets/a475e085-8a80-44f1-a5bd-4c8a29682379" alt="App Screenshot" width="200" height="400"/>
+<img src="https://github.com/user-attachments/assets/a475e085-8a80-44f1-a5bd-4c8a29682379" alt="App Screenshot" width="200" height="400"/> <br> <br>
 <img src="https://github.com/user-attachments/assets/dab6895a-56d0-4115-acab-5d48a5873359" alt="App Screenshot" width="200" height="400"/>
 <img src="https://github.com/user-attachments/assets/803038bf-c877-493f-8f61-8f86b84f3ee4" alt="App Screenshot" width="200" height="400"/>
 
